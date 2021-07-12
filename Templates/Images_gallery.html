@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="layer1">
+    <h5>{{foldername}}</h5>
+    {% for name in images_list %}
+    <div class="container">
+        <a class="main-item" tabindex="1"><img alt="Lazer-nn" src="/images/{{foldername}}/{{name}}"></a>
+        <ul class="sub-menu">
+            <div class="box">
+                <a href="/images/{{foldername}}/{{name}}" class="btn3"><img src="/images/{{foldername}}/{{name}}"
+                                                                            alt="Нажмите еще раз, чтобы открыть"></a>
+                <div class="btn">
+                    <button class='variousamechanics'>
+                        <div class='cleverlypaired'><i class='fa fa-trash-o'></i></div>
+                        <div class='kedeverything'><a
+                                href="/remove/images/{{foldername}}/{{name}}"><span>Удалить!</span></a></div
+                    </button>
+                </div>
+            </div>
+        </ul>
+    </div>
+    {% endfor %}
+    <h1>Загрузить фото</h1>
+    <form enctype=multipart/form-data method=post>
+        <input accept=image/* multiple name=file type=file>
+        <input type=submit value=Загрузить>
+    </form>
+
+    <h1><span><a href="/removed/{{foldername}}" class="delete">Посмотреть удаленные</a></span></h1>
+</div>
+{% endblock %}
